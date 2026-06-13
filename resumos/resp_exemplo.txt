@@ -1,0 +1,12 @@
+Pré-Ordem: 
+
+    - A --> B --> D --> C
+
+Em-Ordem:
+
+    - D --> B --> A --> C
+
+Pós-Ordem:
+
+    - D --> B --> C --> A
+    
