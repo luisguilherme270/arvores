@@ -7,8 +7,7 @@
 struct No;
 
 // função para verificar o No
-void verificarNo(struct No *no);
-
+void verificarNo(struct No* no);
 
 // função para criar um No
 struct No* criarNo(int dado);
@@ -17,21 +16,23 @@ struct No* criarNo(int dado);
 void desalocarNo(struct No* no);
 
 // função para ler o No
-void lerNo(struct No *no);
+void lerNo(struct No* no);
 
 // getters
-int getDado(const struct No *no);
+int getDado(const struct No* no);
 
 // setters
-void setDado(struct No *no,int valor);
+void setDado(struct No* no, int valor);
+
+struct No* inserirNo(struct No* raiz, int valor);
 
 // função para fazer travessia Em-Ordem
-void emOrdem(struct No *raiz);
+void emOrdem(struct No* raiz);
 
 // função para fazer travessia em Pré-Ordem
-void preOrdem(struct No *raiz);
+void preOrdem(struct No* raiz);
 
 // função para fazer travessia em Pós-Ordem
-void posOrdem(struct No *raiz);
+void posOrdem(struct No* raiz);
 
 #endif
