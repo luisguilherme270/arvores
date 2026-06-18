@@ -24,6 +24,7 @@ int getDado(const struct No* no);
 // setters
 void setDado(struct No* no, int valor);
 
+// Inserir um nó na árvore de busca 
 struct No* inserirNo(struct No* raiz, int valor);
 
 // função para fazer travessia Em-Ordem
