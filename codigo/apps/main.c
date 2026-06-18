@@ -2,50 +2,67 @@
 #include <stdlib.h>
 #include "main.h"
 
-struct No{
-    int dado;
-    struct No *esquerda;
-    struct No *direita;
-};
+void imprimirVetor(int vetor[], int tamanho) {
+    printf("[ ");
+    for(int i = 0; i < tamanho; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("]");
+}
 
-int main(){
-
-    struct No* raiz = criarNo(5);
-    struct No* n1 = criarNo(1);
-    struct No* n2 = criarNo(2);
-    struct No* n3 = criarNo(3);
-    struct No* n4 = criarNo(4); 
-    struct No* n5 = criarNo(6);
-    struct No* n6 = criarNo(7);
-    struct No* n7 = criarNo(8);
-    struct No* n8 = criarNo(9);
+int main() {
+    struct No* raiz = NULL;
+    int opcao;
 
     
-    raiz->esquerda = n3;
-    raiz->direita = n7;
-
-    n3->esquerda = n1;
-    n3->direita = n4
-    n7->esquerda = n6;
-    n7->direita = n8;
-
-    n1->direita = n2;
-    n6->esquerda = n5;
-
-    printf("pre ordem(raiz, esquerda, direita)\n");
-    preOrdem(raiz);
-    printf("\n\n");
+    int valores[] = {50, 30, 70, 20, 40, 60, 80};
     
-     printf("em ordem( esquerda, raiz, direita)\n");
-    emOrdem(raiz);
-    printf("\n\n");
+   
+    int tamanho = sizeof(valores) / sizeof(valores[0]);
 
-    printf("pos ordem(esquerda, direita, raiz)\n");
-    posOrdem(raiz);
-    printf("\n\n");
+   
+    for (int i = 0; i < tamanho; i++) {
+        raiz = inserirNo(raiz, valores[i]);
+    }
+
+
+    do {
+        printf("1 - Percorrer em Pre-Ordem\n");
+        printf("2 - Percorrer Em-Ordem\n");
+        printf("3 - Percorrer em Pos-Ordem\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        if (opcao >= 1 && opcao <= 3) {
+            printf("\n-> Vetor Original inserido: ");
+            imprimirVetor(valores, tamanho);
+            printf("\n-> Resultado da Travessia : [ ");
+        }
+
+        switch (opcao) {
+            case 1:
+                preOrdem(raiz); // raiz, esq, dir
+                printf("]\n");
+                break;
+            case 2:
+                emOrdem(raiz);
+                printf("]\n"); //esq, raiz, dir 
+                break;
+            case 3:
+                posOrdem(raiz); //esq, dir, raiz 
+                printf("]\n");
+                break;
+            case 0:
+                printf("\nSaindo e liberando a memoria da arvore...\n");
+                break;
+            default:
+                printf("\nOpcao invalida! Tente novamente.\n");
+        }
+        
+    } while (opcao != 0);
 
     desalocarNo(raiz);
-    if(raiz == NULL){ printf("deu certo"); }
+    
     return 0;
-
 }
