@@ -16,6 +16,30 @@ void lerNo(struct No *raiz)
     printf("%d ", raiz->dado);
 }
 
+// função para inserir um elemento de forma ordenada na Árvore de Busca 
+struct No* inserirNo(struct No *raiz, int valor)
+{
+    // Se a árvore/subárvore estiver vazia, cria e retorna o novo nó aqui
+    if (raiz == NULL)
+    {
+        return criarNo(valor);
+    }
+
+    // Se o valor for menor que o dado atual, vai para a esquerda
+    if (valor < raiz->dado)
+    {
+        raiz->esquerda = inserirNo(raiz->esquerda, valor);
+    }
+    // Se o valor for maior que o dado atual, vai para a direita
+    else if (valor > raiz->dado)
+    {
+        raiz->direita = inserirNo(raiz->direita, valor);
+    }
+
+    // Retorna o ponteiro do nó atual
+    return raiz;
+}
+
 // função para retornar o valor armazenado em raiz
 int getDado(const struct No *raiz)
 {
