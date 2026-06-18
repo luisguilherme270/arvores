@@ -13,7 +13,7 @@ struct No
 // função para printar o valor do dado armazenado em raiz
 void lerNo(struct No *raiz)
 {
-    printf("%d", raiz->dado);
+    printf("%d ", raiz->dado);
 }
 
 // função para retornar o valor armazenado em raiz
