@@ -10,17 +10,27 @@ struct No{
 
 int main(){
 
-    struct No* raiz = criarNo(1);
-    struct No* n1 = criarNo(2);
-    struct No* n2 = criarNo(3);
-    struct No* n3 = criarNo(4);
-    struct No* n4 = criarNo(5); 
-    
-    raiz->esquerda = n1;
-    raiz->direita = n2;
+    struct No* raiz = criarNo(5);
+    struct No* n1 = criarNo(1);
+    struct No* n2 = criarNo(2);
+    struct No* n3 = criarNo(3);
+    struct No* n4 = criarNo(4); 
+    struct No* n5 = criarNo(6);
+    struct No* n6 = criarNo(7);
+    struct No* n7 = criarNo(8);
+    struct No* n8 = criarNo(9);
 
-    n1->esquerda = n3;
-    n2->direita = n4;
+    
+    raiz->esquerda = n3;
+    raiz->direita = n7;
+
+    n3->esquerda = n1;
+    n3->direita = n4
+    n7->esquerda = n6;
+    n7->direita = n8;
+
+    n1->direita = n2;
+    n6->esquerda = n5;
 
     printf("pre ordem(raiz, esquerda, direita)\n");
     preOrdem(raiz);
